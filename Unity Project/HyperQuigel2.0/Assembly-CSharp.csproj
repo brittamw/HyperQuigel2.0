@@ -124,6 +124,7 @@
      <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRCameraControl.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRTemporalWarping.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />
+     <Compile Include="Assets\_HyperQuigelCode\EnemyMovement.cs" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
      <None Include="Assets\LeapMotion\README_BEFORE_UPDATING.txt" />
