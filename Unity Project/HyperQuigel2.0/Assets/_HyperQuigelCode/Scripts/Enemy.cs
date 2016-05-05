@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour {
 
 	public void Die() {
 		nav.enabled = false;
+		enemey.isKinematic = false;
 		Vector3 force = new Vector3 (-5, 40, 50);
 		enemey.AddForce (force, ForceMode.Impulse);
 		alive = false;

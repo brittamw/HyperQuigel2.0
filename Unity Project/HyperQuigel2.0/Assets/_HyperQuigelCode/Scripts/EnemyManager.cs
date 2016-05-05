@@ -10,10 +10,11 @@ public class EnemyManager : MonoBehaviour {
 
 	int currentEnemy;
 	int timeBetweenEnemyKilling;
+	public float timeBetweenEnemySpawning;
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("createEnemy", 0f, 2f);
+		InvokeRepeating ("createEnemy", 1f, timeBetweenEnemySpawning);
 		enemyList = new ArrayList ();
 		currentEnemy = -1;
 		timeBetweenEnemyKilling = 0;
