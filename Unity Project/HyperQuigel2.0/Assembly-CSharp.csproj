@@ -124,7 +124,10 @@
      <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRCameraControl.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRTemporalWarping.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />
-     <Compile Include="Assets\_HyperQuigelCode\Scripts\EnemyMovement.cs" />
+     <Compile Include="Assets\_HyperQuigelCode\Scripts\BadEnemy.cs" />
+     <Compile Include="Assets\_HyperQuigelCode\Scripts\Enemy.cs" />
+     <Compile Include="Assets\_HyperQuigelCode\Scripts\EnemyManager.cs" />
+     <Compile Include="Assets\_HyperQuigelCode\Scripts\GoodEnemy.cs" />
      <Compile Include="Assets\_HyperQuigelCode\Scripts\PlayerHealth.cs" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
