@@ -26,3 +26,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Unity Project/HyperQuigel2.0/Assets/_HyperQuigelCode/Library/
+
+*.blend1
