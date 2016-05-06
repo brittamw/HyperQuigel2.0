@@ -55,7 +55,7 @@ public class EnemyManager : MonoBehaviour {
 
 	void createEnemy() {
 		float randomForPos = Random.value-0.5f;
-		Vector3 randomPos = new Vector3(randomForPos*30,0,0);
+		Vector3 randomPos = new Vector3(randomForPos*80,2,20);
 
 		float randomForType = Random.value*2f;
 		Enemy newEnemyObject;
