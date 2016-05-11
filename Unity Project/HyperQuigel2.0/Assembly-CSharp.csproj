@@ -140,6 +140,7 @@
      <None Include="Assets\LeapMotion\Resources\PassthroughBackground.shader" />
      <None Include="Assets\_HyperQuigelCode\Assets\Blender Models\Neuesmodel.txt" />
      <None Include="Assets\LeapMotion\Version.txt" />
+     <None Include="Assets\_HyperQuigelCode\ProjectSettings\ProjectVersion.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
