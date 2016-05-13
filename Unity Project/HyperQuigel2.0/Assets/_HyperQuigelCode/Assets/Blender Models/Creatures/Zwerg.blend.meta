@@ -82,7 +82,167 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Circle
+        weight: 1
+      - path: Zwerg_Rig
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals/Kopf
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals/Kopf/Hut
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals/Kopf/Hut/Bone_005
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L/Oberarm_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L/Oberarm_L/Unterarm_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L/Oberarm_L/Unterarm_L/Hand_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R/Oberarm_R
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R/Oberarm_R/Unterarm_R
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R/Oberarm_R/Unterarm_R/Hand_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L/Unterschenkel_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L/Unterschenkel_L/Fuss_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L/Unterschenkel_L/Fuss_L/Zehen_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R/Unterschenkel_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R/Unterschenkel_R/Fuss_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R/Unterschenkel_R/Fuss_R/Zehen_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Zwerg_RigAction
+      takeName: Zwerg_RigAction
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Circle
+        weight: 1
+      - path: Zwerg_Rig
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals/Kopf
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals/Kopf/Hut
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Hals/Kopf/Hut/Bone_005
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L/Oberarm_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L/Oberarm_L/Unterarm_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_L/Oberarm_L/Unterarm_L/Hand_L
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R/Oberarm_R
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R/Oberarm_R/Unterarm_R
+        weight: 1
+      - path: Zwerg_Rig/Brustkorb/Schulter_R/Oberarm_R/Unterarm_R/Hand_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L/Unterschenkel_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L/Unterschenkel_L/Fuss_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_L/Unterschenkel_L/Fuss_L/Zehen_L
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R/Unterschenkel_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R/Unterschenkel_R/Fuss_R
+        weight: 1
+      - path: Zwerg_Rig/SteuerBone/H_fte/Oberschenkel_R/Unterschenkel_R/Fuss_R/Zehen_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

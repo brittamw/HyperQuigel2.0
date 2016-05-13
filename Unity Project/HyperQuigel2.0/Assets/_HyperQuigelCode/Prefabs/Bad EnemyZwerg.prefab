@@ -56,6 +56,7 @@ GameObject:
   - 195: {fileID: 19537246}
   - 114: {fileID: 11401790}
   - 54: {fileID: 5452982}
+  - 95: {fileID: 9556490}
   m_Layer: 0
   m_Name: Bad EnemyZwerg
   m_TagString: Untagged
@@ -759,6 +760,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7697043, y: 7.5972576, z: 3.5902078}
   m_Center: {x: 0.060843553, y: -0.36859727, z: -2.5054183}
+--- !u!95 &9556490
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107286}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 724cbf24f8ccae34bb2c3404eeeedd05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11401790
 MonoBehaviour:
   m_ObjectHideFlags: 1
