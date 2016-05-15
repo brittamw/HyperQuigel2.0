@@ -50,12 +50,13 @@ public class EnemyManager : MonoBehaviour {
 	void KillEnemy(Enemy enemy) {
 		enemy.Die ();
 		currentEnemy++;
+		markCurrentEnemy ();
 		timeBetweenEnemyKilling = 5;
 	}
 
 	void createEnemy() {
 		float randomForPos = Random.value-0.5f;
-		Vector3 randomPos = new Vector3(randomForPos*80,2,20);
+		Vector3 randomPos = new Vector3(randomForPos*40,2,20);
 
 		float randomForType = Random.value*2f;
 		Enemy newEnemyObject;
@@ -70,5 +71,14 @@ public class EnemyManager : MonoBehaviour {
 		if (currentEnemy == -1) {
 			currentEnemy = 0;
 		}
+		markCurrentEnemy ();
 	}
+
+	void markCurrentEnemy() {
+		if (currentEnemy >= 0 && currentEnemy < enemyList.Count) {
+			Enemy enemy = (Enemy)enemyList [currentEnemy];
+			enemy.markAsEnabled ();
+		}
+	}
+
 }

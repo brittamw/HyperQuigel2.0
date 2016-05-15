@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour {
 	Rigidbody enemey;
     NavMeshAgent nav;
 
+	Light light;
 
     void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
+		light = GetComponentInChildren<Light> ();
 		alive = true;
 		enemey = GetComponent<Rigidbody> ();
 	}
@@ -31,5 +33,10 @@ public class Enemy : MonoBehaviour {
 		Vector3 force = new Vector3 (-5, 40, 50);
 		enemey.AddForce (force, ForceMode.Impulse);
 		alive = false;
+		light.enabled = false;
+	}
+
+	public void markAsEnabled() {
+		light.enabled = true;
 	}
 }
