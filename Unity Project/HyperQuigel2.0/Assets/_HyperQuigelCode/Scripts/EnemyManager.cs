@@ -51,6 +51,7 @@ public class EnemyManager : MonoBehaviour {
 		enemy.Die ();
 		currentEnemy++;
 		markCurrentEnemy ();
+
 		timeBetweenEnemyKilling = 5;
 	}
 
@@ -65,13 +66,6 @@ public class EnemyManager : MonoBehaviour {
 		} else {
 			newEnemyObject = (Enemy) Instantiate (badEnemy, randomPos, badEnemy.transform.rotation);
 		}
-
-		enemyList.Add (newEnemyObject);
-		// nur beim ersten Enemy
-		if (currentEnemy == -1) {
-			currentEnemy = 0;
-		}
-		markCurrentEnemy ();
 	}
 
 	void markCurrentEnemy() {
@@ -81,4 +75,11 @@ public class EnemyManager : MonoBehaviour {
 		}
 	}
 
+	public void newEnemyInGameArea(Enemy enemy) {
+		enemyList.Add (enemy);
+		if (currentEnemy == -1) {
+			currentEnemy = 0;
+		}
+		markCurrentEnemy ();
+	}
 }

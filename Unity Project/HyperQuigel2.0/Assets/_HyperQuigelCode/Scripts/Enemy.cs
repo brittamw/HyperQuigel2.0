@@ -12,8 +12,11 @@ public class Enemy : MonoBehaviour {
 
 	Light light;
 
+	EnemyManager enemyManager;
+
     void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		enemyManager = GameObject.FindGameObjectWithTag ("EnemyManager").gameObject.GetComponent<EnemyManager> ();
 		nav = GetComponent<NavMeshAgent>();
 		light = GetComponentInChildren<Light> ();
 		alive = true;
@@ -34,6 +37,12 @@ public class Enemy : MonoBehaviour {
 		enemey.AddForce (force, ForceMode.Impulse);
 		alive = false;
 		light.enabled = false;
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.CompareTag ("GameArea")) {
+			enemyManager.newEnemyInGameArea (this);
+		}
 	}
 
 	public void markAsEnabled() {
