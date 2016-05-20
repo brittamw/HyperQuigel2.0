@@ -1,26 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour {
+public abstract class Enemy : MonoBehaviour {
 
     Transform player;
 
-	bool alive;
-
-	Rigidbody enemey;
-    NavMeshAgent nav;
-
-	Light light;
+	public bool alive;
+	public Rigidbody enemey;
+    public NavMeshAgent nav;
+	public Light light;
+	public AudioClip rightActionAudio;
+	public AudioClip wrongActionAudio;
+	public AudioSource audioSource;
 
 	EnemyManager enemyManager;
+	public PlayerHealth playerHealth;
 
     void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		enemyManager = GameObject.FindGameObjectWithTag ("EnemyManager").gameObject.GetComponent<EnemyManager> ();
+		playerHealth = GameObject.FindGameObjectWithTag ("PlayerHealth").gameObject.GetComponent<PlayerHealth> ();
 		nav = GetComponent<NavMeshAgent>();
 		light = GetComponentInChildren<Light> ();
 		alive = true;
 		enemey = GetComponent<Rigidbody> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -30,14 +34,7 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	public void Die() {
-		nav.enabled = false;
-		enemey.isKinematic = false;
-		Vector3 force = new Vector3 (-5, 40, 50);
-		enemey.AddForce (force, ForceMode.Impulse);
-		alive = false;
-		light.enabled = false;
-	}
+	public abstract void DoAction (bool rightAction);
 
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag ("GameArea")) {

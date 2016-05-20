@@ -4,8 +4,10 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public int startingHealt = 100;
+    public int startingHealt = 50;
     public int currentHealth;
+
+	public Text healthPoints;
 
 
     // public Slider healtSlider; // falls wir einen EP-Balken haben wollen
@@ -37,6 +39,7 @@ public class PlayerHealth : MonoBehaviour {
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         damaged = false;
+		healthPoints.text = currentHealth.ToString();
 	
     }
 
@@ -45,7 +48,9 @@ public class PlayerHealth : MonoBehaviour {
         damaged = true;
         currentHealth -= amount;
         //healthSlider.value = currentHealth;
-        playerAudio.Play();
+		if (playerAudio != null) {
+			playerAudio.Play();
+		}
 
         if(currentHealth <= 0 && !isDead)
         {

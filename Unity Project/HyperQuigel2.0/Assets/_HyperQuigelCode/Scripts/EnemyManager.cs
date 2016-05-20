@@ -23,20 +23,28 @@ public class EnemyManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (timeBetweenEnemyKilling == 0) {
-			bool killGoodEnemy = false;
-			bool killBadEnemy = false;
+			bool leftClick = false;
+			bool rightClick = false;
 			if (Input.GetButtonDown ("Fire1")) {
-				killGoodEnemy = true;
+				leftClick = true;
 			} else if (Input.GetButtonDown("Fire2")) {
-				killBadEnemy = true;
+				rightClick = true;
 			}
-			if (killBadEnemy || killGoodEnemy) {
+			if (rightClick || leftClick) {
 				if (currentEnemy < enemyList.Count) {
 					Enemy enemy = (Enemy) enemyList [currentEnemy];
-					if (enemy is GoodEnemy && killGoodEnemy) {
-						KillEnemy (enemy);
-					} else if (enemy is BadEnemy && killBadEnemy) {
-						KillEnemy (enemy);
+					if (enemy is GoodEnemy) {
+						if (leftClick) {
+							DoActionToEnemy (enemy, true);
+						} else {
+							DoActionToEnemy (enemy, false);
+						}
+					} else if (enemy is BadEnemy) {
+						if (rightClick) {
+							DoActionToEnemy (enemy, true);
+						} else {
+							DoActionToEnemy (enemy, false);
+						}
 					}
 				}
 			}		
@@ -47,8 +55,8 @@ public class EnemyManager : MonoBehaviour {
 		}
 	}
 
-	void KillEnemy(Enemy enemy) {
-		enemy.Die ();
+	void DoActionToEnemy(Enemy enemy, bool rightAction) {
+		enemy.DoAction (rightAction);
 		currentEnemy++;
 		markCurrentEnemy ();
 
