@@ -57,7 +57,7 @@ GameObject:
   - 114: {fileID: 11401790}
   - 54: {fileID: 5452982}
   - 95: {fileID: 9556490}
-  - 82: {fileID: 8258230}
+  - 82: {fileID: 8211892}
   m_Layer: 0
   m_Name: Bad EnemyZwerg
   m_TagString: Untagged
@@ -790,7 +790,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7697043, y: 7.5972576, z: 3.5902078}
   m_Center: {x: 0.060843553, y: -0.36859727, z: -2.5054183}
---- !u!82 &8258230
+--- !u!82 &8211892
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
