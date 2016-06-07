@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public int startingHealt = 50;
+    public int startingHealth;
     public int currentHealth;
 
 	public Text healthPoints;
@@ -15,49 +15,45 @@ public class PlayerHealth : MonoBehaviour {
     public Image damageImage;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+	public EnemyManager enemyManager;
 
 
-    bool isDead;
+	bool alive;
     bool damaged;
     
     // Use this for initialization
 	void Awake () {
-        currentHealth = startingHealt;
+        currentHealth = startingHealth;
+		alive = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
        // Bei Schaden Bild rot aufleuchten lassen
-        if (damaged)
-        {
-            damageImage.color = flashColour;
-        }
-        else
-        {
-            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-        }
-        damaged = false;
-		healthPoints.text = currentHealth.ToString();
-	
+		healthPoints.text = currentHealth.ToString ();
+		if (damaged) {
+			damageImage.color = flashColour;
+		} else {
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
+		damaged = false;	
     }
 
     public void TakeDamage(int amount)
     {
-        damaged = true;
-        currentHealth -= amount;
-        if(currentHealth <= 0 && !isDead)
-        {
-            Death();
-        }
+		if (alive) {
+			damaged = true;
+			currentHealth -= amount;
+			if(currentHealth <= 0 && alive)
+			{
+				Die();
+			}
+		}
     }
 
-    void Death()
+    void Die()
     {
-        isDead = true;
-
-        //playerAudio.clip = deathClip;
-        //playerAudio.Play();
-
-
+		alive = false;
+		enemyManager.endGame ();
     }
 }

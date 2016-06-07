@@ -6,52 +6,66 @@ public class EnemyManager : MonoBehaviour {
 	public GoodEnemy goodEnemy;
 	public BadEnemy badEnemy;
 
-	ArrayList enemyList;
+	ArrayList allEnemies;
+	ArrayList enemiesInPlayArea;
 
 	int currentEnemy;
 	int timeBetweenEnemyKilling;
 	public float timeBetweenEnemySpawning;
 
+	bool gameRunning;
+
+	public GameManager gameManager;
+
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("createEnemy", 1f, timeBetweenEnemySpawning);
-		enemyList = new ArrayList ();
+		gameRunning = false;
+		allEnemies = new ArrayList ();
+		enemiesInPlayArea = new ArrayList ();
 		currentEnemy = -1;
 		timeBetweenEnemyKilling = 0;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (timeBetweenEnemyKilling == 0) {
-			bool leftClick = false;
-			bool rightClick = false;
-			if (Input.GetButtonDown ("Fire1")) {
-				leftClick = true;
-			} else if (Input.GetButtonDown("Fire2")) {
-				rightClick = true;
+		if (gameRunning) {
+			if (timeBetweenEnemySpawning == 0) {
+				Invoke ("createEnemy", 0f);
+				timeBetweenEnemySpawning = 300;
 			}
-			if (rightClick || leftClick) {
-				if (currentEnemy < enemyList.Count) {
-					Enemy enemy = (Enemy) enemyList [currentEnemy];
-					if (enemy is GoodEnemy) {
-						if (leftClick) {
-							DoActionToEnemy (enemy, true);
-						} else {
-							DoActionToEnemy (enemy, false);
-						}
-					} else if (enemy is BadEnemy) {
-						if (rightClick) {
-							DoActionToEnemy (enemy, true);
-						} else {
-							DoActionToEnemy (enemy, false);
+			timeBetweenEnemySpawning--;
+			
+			if (timeBetweenEnemyKilling == 0) {
+				bool leftClick = false;
+				bool rightClick = false;
+				if (Input.GetButtonDown ("Fire1")) {
+					leftClick = true;
+				} else if (Input.GetButtonDown ("Fire2")) {
+					rightClick = true;
+				}
+				if (rightClick || leftClick) {
+					if (currentEnemy < enemiesInPlayArea.Count) {
+						Enemy enemy = (Enemy)enemiesInPlayArea [currentEnemy];
+						if (enemy is GoodEnemy) {
+							if (leftClick) {
+								DoActionToEnemy (enemy, true);
+							} else {
+								DoActionToEnemy (enemy, false);
+							}
+						} else if (enemy is BadEnemy) {
+							if (rightClick) {
+								DoActionToEnemy (enemy, true);
+							} else {
+								DoActionToEnemy (enemy, false);
+							}
 						}
 					}
-				}
-			}		
-		}
+				}		
+			}
 
-		if (timeBetweenEnemyKilling > 0) {
-			timeBetweenEnemyKilling--;
+			if (timeBetweenEnemyKilling > 0) {
+				timeBetweenEnemyKilling--;
+			}
 		}
 	}
 
@@ -61,6 +75,7 @@ public class EnemyManager : MonoBehaviour {
 		markCurrentEnemy ();
 
 		timeBetweenEnemyKilling = 5;
+		allEnemies.RemoveAt (0);
 	}
 
 	void createEnemy() {
@@ -74,20 +89,34 @@ public class EnemyManager : MonoBehaviour {
 		} else {
 			newEnemyObject = (Enemy) Instantiate (badEnemy, randomPos, badEnemy.transform.rotation);
 		}
+		allEnemies.Add (newEnemyObject);
 	}
 
 	void markCurrentEnemy() {
-		if (currentEnemy >= 0 && currentEnemy < enemyList.Count) {
-			Enemy enemy = (Enemy)enemyList [currentEnemy];
+		if (currentEnemy >= 0 && currentEnemy < enemiesInPlayArea.Count) {
+			Enemy enemy = (Enemy)enemiesInPlayArea [currentEnemy];
 			enemy.markAsEnabled ();
 		}
 	}
 
 	public void newEnemyInGameArea(Enemy enemy) {
-		enemyList.Add (enemy);
+		enemiesInPlayArea.Add (enemy);
 		if (currentEnemy == -1) {
 			currentEnemy = 0;
 		}
 		markCurrentEnemy ();
+	}
+
+	public void startGame() {
+		gameRunning = true;
+	}
+
+	public void endGame() {
+		gameRunning = false;
+		foreach(Enemy e in allEnemies) {
+			e.DoAction (false);
+		}
+
+		gameManager.gameOver ();
 	}
 }
