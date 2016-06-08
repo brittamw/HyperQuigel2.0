@@ -14,24 +14,36 @@ public class EnemyManager : MonoBehaviour {
 	public float timeBetweenEnemySpawning;
 
 	bool gameRunning;
+	bool firstStart;
 
 	public GameManager gameManager;
+	public PlayerHealth playerHealth;
+
+	float currentNavSpeed;
+	int spawnTime;
 
 	// Use this for initialization
 	void Start () {
 		gameRunning = false;
+		firstStart = true;
 		allEnemies = new ArrayList ();
 		enemiesInPlayArea = new ArrayList ();
 		currentEnemy = -1;
 		timeBetweenEnemyKilling = 0;
+		currentNavSpeed = 3f;
+		spawnTime = 300;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (gameRunning) {
+			if (firstStart) {
+				InvokeRepeating ("makeGameHarder", 5f, 5f);
+				firstStart = false;
+			}
 			if (timeBetweenEnemySpawning == 0) {
 				Invoke ("createEnemy", 0f);
-				timeBetweenEnemySpawning = 300;
+				timeBetweenEnemySpawning = spawnTime;
 			}
 			timeBetweenEnemySpawning--;
 			
@@ -75,7 +87,6 @@ public class EnemyManager : MonoBehaviour {
 		markCurrentEnemy ();
 
 		timeBetweenEnemyKilling = 5;
-		allEnemies.RemoveAt (0);
 	}
 
 	void createEnemy() {
@@ -107,6 +118,31 @@ public class EnemyManager : MonoBehaviour {
 		markCurrentEnemy ();
 	}
 
+	public void enemyTooNear(Enemy enemy) {
+		if (enemy.isCurrent()) {
+			currentEnemy++;
+			markCurrentEnemy ();
+		}
+		if (enemy is BadEnemy) {
+			playerHealth.TakeDamage (10);
+		}
+		Destroy (enemy.gameObject);
+	}
+
+	public float getCurrentNavSpeed() {
+		return currentNavSpeed;
+	}
+
+	public void makeGameHarder() {
+		spawnTime = spawnTime - 30;
+		if (spawnTime < 30) {
+			spawnTime = 30;
+		}
+
+		currentNavSpeed = currentNavSpeed + 0.5f;
+		Debug.Log ("Game is now harder: speed=" + currentNavSpeed + " spawntime: " + timeBetweenEnemySpawning);
+	}
+
 	public void startGame() {
 		gameRunning = true;
 	}
@@ -114,7 +150,10 @@ public class EnemyManager : MonoBehaviour {
 	public void endGame() {
 		gameRunning = false;
 		foreach(Enemy e in allEnemies) {
-			e.DoAction (false);
+			if (e != null && e.gameObject != null) {
+				e.audioSource.enabled = false;
+				e.DoAction (false);
+			}
 		}
 
 		gameManager.gameOver ();

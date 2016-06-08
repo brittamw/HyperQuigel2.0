@@ -30,7 +30,19 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!gameStarted) {
-			if (Input.GetButtonDown ("Fire1")) {
+			bool input = false;
+			if (Input.touchCount > 0) {
+				//Store the first touch detected.
+				Touch myTouch = Input.touches [0];
+				if (myTouch.phase == TouchPhase.Began) {
+					input = true;
+					gameOverText.enabled = true;
+				}
+			} else if (Input.GetButtonDown ("Fire1")) {
+				input = true;
+			}
+
+			if (input) {
 				gotoStart = true;
 				gameStarted = true;
 				startGameText.enabled = false;

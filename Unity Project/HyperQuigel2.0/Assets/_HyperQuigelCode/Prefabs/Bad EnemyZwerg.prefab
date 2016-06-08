@@ -800,7 +800,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -926,11 +926,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 0
+  current: 0
   enemey: {fileID: 0}
   nav: {fileID: 0}
   light: {fileID: 0}
-  rightActionAudio: {fileID: 8300000, guid: e31b07ec3150d4e46ad450c3451ee06b, type: 3}
-  wrongActionAudio: {fileID: 8300000, guid: c64314a67ac61304baaafa46db0e6d8d, type: 3}
+  rightActionAudio: {fileID: 8300000, guid: 6d76c38e71502834bb0dda3057a53024, type: 3}
+  wrongActionAudio: {fileID: 8300000, guid: 34abc90078b2d9342b17dbe3d1b0e8a2, type: 3}
   audioSource: {fileID: 0}
   playerHealth: {fileID: 0}
 --- !u!137 &13791576

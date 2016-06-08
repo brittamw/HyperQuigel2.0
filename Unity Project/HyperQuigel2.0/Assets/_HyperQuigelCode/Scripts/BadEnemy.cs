@@ -13,15 +13,13 @@ public class BadEnemy : Enemy {
 			light.enabled = false;
 			audioSource.clip = rightActionAudio;
 		} else {
-			nav.enabled = false;
-			enemey.isKinematic = false;
-			Vector3 force = new Vector3 (-5, -10, -10);
-			enemey.AddForce (force, ForceMode.Impulse);
+			nav.acceleration = 30;
+			nav.speed = nav.speed + 30;
 			alive = false;
 			light.enabled = false;
 			audioSource.clip = wrongActionAudio;
-			playerHealth.TakeDamage (5);
 		}
+		current = false;
 		audioSource.Play ();
 	}
 }
