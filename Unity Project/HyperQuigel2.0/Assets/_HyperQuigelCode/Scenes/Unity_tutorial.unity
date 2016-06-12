@@ -4230,7 +4230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be242a90d9abd814fa40deecef9b6fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 0
   currentHealth: 0
   healthPoints: {fileID: 305504915}
   deathClip: {fileID: 0}
@@ -4259,6 +4258,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1248835030}
   - 114: {fileID: 1248835031}
+  - 114: {fileID: 1248835032}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -4287,6 +4287,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0292a9991dc089f4ab5c9c08a3f2bc78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1377692689}
+  gameManager: {fileID: 828297076}
+--- !u!114 &1248835032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248835029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8805045d984a254b9050a9678e19fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 1377692689}

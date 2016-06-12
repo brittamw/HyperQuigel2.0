@@ -12,27 +12,29 @@ public class LeapMotionController : InputController {
 	}
 
 	protected override void Update() {
-		base.Update ();
-		Frame frame = leapProvider.CurrentFrame;
-		foreach (Hand hand in frame.Hands) {
-			bool handFast = hand.PalmVelocity.y < -0.8;
-			bool handOpen = hand.GrabAngle < 2.3;
-			bool thumbExtended = hand.Fingers [0].IsExtended;
+		if (leapProvider != null) {
+			base.Update ();
+			Frame frame = leapProvider.CurrentFrame;
+			foreach (Hand hand in frame.Hands) {
+				bool handFast = hand.PalmVelocity.y < -0.8;
+				bool handOpen = hand.GrabAngle < 2.3;
+				bool thumbExtended = hand.Fingers [0].IsExtended;
 
-			if (handFast && !handOpen) {
-				beat ();
-			} else if (handFast && handOpen) {
-				brush ();
+				if (handFast && !handOpen) {
+					beat ();
+				} else if (handFast && handOpen) {
+					brush ();
+				}
+
+				if (thumbExtended && !handOpen) {
+					startGame ();
+				}
+
+
+				//Debug.Log ("velo: " + hand.PalmVelocity.y);
+				//Debug.Log ("closed: " + handOpen);
+
 			}
-
-			if (thumbExtended && !handOpen) {
-				startGame ();
-			}
-
-
-			//Debug.Log ("velo: " + hand.PalmVelocity.y);
-			//Debug.Log ("closed: " + handOpen);
-
 		}
 	}
 }

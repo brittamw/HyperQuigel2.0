@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public int startingHealth;
+    int startingHealth = 50;
     public int currentHealth;
 
 	public Text healthPoints;

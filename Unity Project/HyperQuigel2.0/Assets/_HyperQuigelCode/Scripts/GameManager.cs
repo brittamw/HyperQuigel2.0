@@ -38,13 +38,7 @@ public class GameManager : MonoBehaviour {
 					input = true;
 					gameOverText.enabled = true;
 				}
-			} else if (Input.GetButtonDown ("Fire1")) {
-				input = true;
-			}
-
-			if (input) {
-				goToStart ();
-			}
+			} 
 		}
 
 		if (gotoStart) {
