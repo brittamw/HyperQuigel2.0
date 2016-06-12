@@ -43,11 +43,7 @@ public class GameManager : MonoBehaviour {
 			}
 
 			if (input) {
-				gotoStart = true;
-				gameStarted = true;
-				startGameText.enabled = false;
-				titleText.enabled = false;
-				healthPointText.enabled = true;
+				goToStart ();
 			}
 		}
 
@@ -59,6 +55,14 @@ public class GameManager : MonoBehaviour {
 				enemyManager.startGame ();
 			}
 		}
+	}
+
+	public void goToStart() {
+		gotoStart = true;
+		gameStarted = true;
+		startGameText.enabled = false;
+		titleText.enabled = false;
+		healthPointText.enabled = true;
 	}
 
 	public void gameOver() {

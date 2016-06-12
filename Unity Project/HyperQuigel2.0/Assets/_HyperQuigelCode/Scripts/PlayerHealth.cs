@@ -30,11 +30,13 @@ public class PlayerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
        // Bei Schaden Bild rot aufleuchten lassen
-		healthPoints.text = currentHealth.ToString ();
+		if (healthPoints != null) {
+			healthPoints.text = currentHealth.ToString ();
+		}
 		if (damaged) {
-			damageImage.color = flashColour;
+			//damageImage.color = flashColour;
 		} else {
-			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+			//damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
 		}
 		damaged = false;	
     }

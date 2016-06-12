@@ -19,3 +19,4 @@ C:\Users\Matze\projects\HyperQuigel2.0\Unity Project\HyperQuigel2.0\Temp\bin\Deb
 C:\Users\Matze\projects\HyperQuigel2.0\Unity Project\HyperQuigel2.0\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Matze\projects\HyperQuigel2.0\Unity Project\HyperQuigel2.0\obj\Debug\Assembly-CSharp.dll
 C:\Users\Matze\projects\HyperQuigel2.0\Unity Project\HyperQuigel2.0\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Matze\projects\HyperQuigel2.0\Unity Project\HyperQuigel2.0\Temp\bin\Debug\LeapCSharp.NET3.5.dll
