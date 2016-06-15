@@ -11,9 +11,14 @@ public class GameManager : MonoBehaviour {
 	public UnityEngine.UI.Text startGameText;
 	public UnityEngine.UI.Text gameOverText;
 	public UnityEngine.UI.Text healthPointText;
+	public UnityEngine.UI.Text timeText;
+	public UnityEngine.UI.Text gameOverTimeText;
 
 	bool gotoStart;
 	bool gameStarted;
+	bool timerStarted;
+
+	float timer;
 
 	// Use this for initialization
 	void Start () {
@@ -25,30 +30,29 @@ public class GameManager : MonoBehaviour {
 		startGameText.enabled = true;
 		titleText.enabled = true;
 		healthPointText.enabled = false;
+		timeText.enabled = false;
+		timerStarted = false;
+		timer = 0;
+		gameOverTimeText.enabled = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (!gameStarted) {
-			bool input = false;
-			if (Input.touchCount > 0) {
-				//Store the first touch detected.
-				Touch myTouch = Input.touches [0];
-				if (myTouch.phase == TouchPhase.Began) {
-					input = true;
-					gameOverText.enabled = true;
-				}
-			} 
-		}
-
 		if (gotoStart) {
 			mainCamera.transform.localPosition = Vector3.Lerp (mainCamera.transform.localPosition, cameraGamePosition, Time.deltaTime * 0.7f);
 			Vector3 distance = mainCamera.transform.localPosition - cameraGamePosition;
 			if (distance.magnitude < 0.5) {
 				gotoStart = false;
 				enemyManager.startGame ();
+				startTimer ();
 			}
 		}
+		if (timerStarted == true) {
+			timer += Time.deltaTime;
+			string minutes = (string) Mathf.Floor(timer / 60).ToString("00");
+			string seconds = (string) Mathf.Floor(timer % 60).ToString("00");
+			timeText.text = minutes + ":" + seconds;
+		}     
 	}
 
 	public void goToStart() {
@@ -59,7 +63,17 @@ public class GameManager : MonoBehaviour {
 		healthPointText.enabled = true;
 	}
 
+	void startTimer() {
+		timerStarted = true;
+		timeText.enabled = true;
+	}
+
 	public void gameOver() {
 		gameOverText.enabled = true;
+		timerStarted = false;
+		gameOverTimeText.enabled = true;
+		gameOverTimeText.text = timeText.text;
+		healthPointText.enabled = false;
+		timeText.enabled = false;
 	}
 }

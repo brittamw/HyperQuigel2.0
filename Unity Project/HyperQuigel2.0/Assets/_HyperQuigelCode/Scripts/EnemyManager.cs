@@ -21,6 +21,7 @@ public class EnemyManager : MonoBehaviour {
 
 	float currentNavSpeed;
 	int spawnTime;
+	int gameLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,7 @@ public class EnemyManager : MonoBehaviour {
 		timeBetweenEnemyKilling = 0;
 		currentNavSpeed = 3f;
 		spawnTime = 300;
+		gameLevel = 1;
 	}
 
 	// Update is called once per frame
@@ -128,13 +130,14 @@ public class EnemyManager : MonoBehaviour {
 	}
 
 	public void makeGameHarder() {
-		spawnTime = spawnTime - 30;
+		gameLevel++;
+		spawnTime = spawnTime - (100/gameLevel);
 		if (spawnTime < 30) {
 			spawnTime = 30;
 		}
 
-		currentNavSpeed = currentNavSpeed + 0.5f;
-		Debug.Log ("Game is now harder: speed=" + currentNavSpeed + " spawntime: " + timeBetweenEnemySpawning);
+		currentNavSpeed = currentNavSpeed + (2f/gameLevel);
+		Debug.Log ("Game is now at level: " + gameLevel + " speed=" + currentNavSpeed + " spawntime: " + spawnTime);
 	}
 
 	public void startGame() {
