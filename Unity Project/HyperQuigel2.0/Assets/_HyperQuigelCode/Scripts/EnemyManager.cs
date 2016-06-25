@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour {
 
 	ArrayList allEnemies;
 	ArrayList enemiesInPlayArea;
-
+    Animator animator;
 	int currentEnemy;
 	int timeBetweenEnemyKilling;
 	public float timeBetweenEnemySpawning;
@@ -34,6 +34,7 @@ public class EnemyManager : MonoBehaviour {
 		currentNavSpeed = 3f;
 		spawnTime = 300;
 		gameLevel = 1;
+        animator = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
@@ -70,7 +71,8 @@ public class EnemyManager : MonoBehaviour {
 				Enemy enemy = (Enemy)enemiesInPlayArea [currentEnemy];
 				if (enemy is GoodEnemy) {
 					DoActionToEnemy (enemy, true);
-				} else if (enemy is BadEnemy) {
+                    animator.SetTrigger("freuen");
+                } else if (enemy is BadEnemy) {
 					DoActionToEnemy (enemy, false);				
 				}
 			}
