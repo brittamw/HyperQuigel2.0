@@ -2,15 +2,17 @@
 using System.Collections;
 
 public class GoodEnemy : Enemy {
-
+    Animator animator;
 	public override void DoAction(bool rightAction) {
 		if (rightAction) {
+            animator = GetComponent<Animator>();
 			nav.enabled = false;
 			alive = false;
 			light.enabled = false;
-
+            
 			audioSource.clip = rightActionAudio;
 			playerHealth.TakeDamage (-1);
+            animator.SetTrigger("freuen");
 			Destroy (this.gameObject, 1f);
 		} else {
 			nav.enabled = false;
