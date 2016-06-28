@@ -10,6 +10,8 @@ public abstract class InputController : MonoBehaviour {
 	public EnemyManager enemyManager;
 	public GameManager gameManager;
 
+	bool gameOnceStarted = false;
+
 
 	protected virtual void Update() {
 		if (currentTimeBetweenActions >= 0) {
@@ -37,10 +39,13 @@ public abstract class InputController : MonoBehaviour {
 	}
 
 	public void startGame () {
-		if (currentTimeBetweenThumbs < 0) {
-			Debug.Log ("thumbUp");
-			gameManager.goToStart();
-			currentTimeBetweenThumbs = timeBetweenActions;
+		if (!gameOnceStarted) {
+			if (currentTimeBetweenThumbs < 0) {
+				Debug.Log ("thumbUp");
+				gameManager.goToStart ();
+				currentTimeBetweenThumbs = timeBetweenActions;
+				gameOnceStarted = true;
+			}
 		}
 	}
 }

@@ -31,8 +31,8 @@ public class EnemyManager : MonoBehaviour {
 		enemiesInPlayArea = new ArrayList ();
 		currentEnemy = -1;
 		timeBetweenEnemyKilling = 0;
-		currentNavSpeed = 3f;
-		spawnTime = 300;
+		currentNavSpeed = 3.5f;
+		spawnTime = 250;
 		gameLevel = 1;
        
 	}
@@ -133,7 +133,7 @@ public class EnemyManager : MonoBehaviour {
 
 	public void makeGameHarder() {
 		gameLevel++;
-		spawnTime = spawnTime - (100/gameLevel);
+		spawnTime = spawnTime - (75/gameLevel);
 		if (spawnTime < 30) {
 			spawnTime = 30;
 		}

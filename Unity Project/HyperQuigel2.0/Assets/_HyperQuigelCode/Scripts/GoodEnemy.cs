@@ -11,7 +11,7 @@ public class GoodEnemy : Enemy {
 			light.enabled = false;
             
 			audioSource.clip = rightActionAudio;
-			playerHealth.TakeDamage (-1);
+			playerHealth.TakeDamage (-2);
             animator.SetTrigger("freuen");
 			Destroy (this.gameObject, 1f);
 		} else {
